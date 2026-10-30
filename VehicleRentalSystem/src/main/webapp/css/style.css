@@ -1,0 +1,487 @@
+/* =====================================================================
+   Vehicle Rental System — Custom Stylesheet
+   Uses Bootstrap 5 for the grid/components; this file adds brand colors,
+   hero section, vehicle cards, and visual polish.
+   ===================================================================== */
+
+/* ---- CSS Custom Properties (Design Tokens) ---- */
+:root {
+    --vr-primary:       #1a56db;
+    --vr-primary-dark:  #1442a8;
+    --vr-primary-light: #e1eaff;
+    --vr-accent:        #f59e0b;
+    --vr-accent-dark:   #d97706;
+    --vr-dark:          #111827;
+    --vr-gray-50:       #f9fafb;
+    --vr-gray-100:      #f3f4f6;
+    --vr-gray-200:      #e5e7eb;
+    --vr-gray-500:      #6b7280;
+    --vr-gray-700:      #374151;
+    --vr-gray-900:      #111827;
+    --vr-success:       #059669;
+    --vr-danger:        #dc2626;
+    --vr-white:         #ffffff;
+    --vr-shadow-sm:     0 1px 3px rgba(0,0,0,.08);
+    --vr-shadow-md:     0 4px 12px rgba(0,0,0,.1);
+    --vr-shadow-lg:     0 10px 30px rgba(0,0,0,.12);
+    --vr-radius:        12px;
+    --vr-radius-sm:     8px;
+    --vr-transition:    all .25s ease;
+}
+
+/* ---- Global resets ---- */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--vr-gray-900);
+    background-color: var(--vr-gray-50);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--vr-primary);
+    text-decoration: none;
+    transition: var(--vr-transition);
+}
+a:hover {
+    color: var(--vr-primary-dark);
+}
+
+/* ---- Navbar ---- */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -0.5px;
+}
+.navbar-brand .brand-icon {
+    color: var(--vr-accent);
+    margin-right: 6px;
+}
+.vr-navbar {
+    background: var(--vr-white);
+    box-shadow: var(--vr-shadow-sm);
+    padding: .75rem 0;
+}
+.vr-navbar .nav-link {
+    font-weight: 500;
+    color: var(--vr-gray-700);
+    padding: .5rem 1rem;
+    border-radius: var(--vr-radius-sm);
+    transition: var(--vr-transition);
+}
+.vr-navbar .nav-link:hover,
+.vr-navbar .nav-link.active {
+    color: var(--vr-primary);
+    background: var(--vr-primary-light);
+}
+
+/* ---- Hero Section ---- */
+.vr-hero {
+    background: linear-gradient(135deg, var(--vr-primary) 0%, #3b82f6 50%, #2563eb 100%);
+    color: var(--vr-white);
+    padding: 5rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+}
+.vr-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+}
+.vr-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+}
+.vr-hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+.vr-hero p.lead {
+    font-size: 1.15rem;
+    opacity: .9;
+    max-width: 540px;
+}
+.vr-hero .btn-accent {
+    background: var(--vr-accent);
+    color: var(--vr-dark);
+    font-weight: 600;
+    border: none;
+    padding: .75rem 2rem;
+    border-radius: var(--vr-radius-sm);
+    font-size: 1.05rem;
+    transition: var(--vr-transition);
+}
+.vr-hero .btn-accent:hover {
+    background: var(--vr-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245,158,11,.35);
+}
+
+/* ---- Search Bar / Filter Section ---- */
+.vr-search-section {
+    background: var(--vr-white);
+    border-radius: var(--vr-radius);
+    box-shadow: var(--vr-shadow-md);
+    padding: 2rem;
+    margin-top: -3rem;
+    position: relative;
+    z-index: 10;
+}
+.vr-search-section h5 {
+    font-weight: 700;
+    color: var(--vr-gray-900);
+    margin-bottom: 1.25rem;
+}
+.vr-search-section .form-label {
+    font-weight: 600;
+    font-size: .85rem;
+    color: var(--vr-gray-500);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.vr-search-section .form-control,
+.vr-search-section .form-select {
+    border: 1.5px solid var(--vr-gray-200);
+    border-radius: var(--vr-radius-sm);
+    padding: .65rem 1rem;
+    transition: var(--vr-transition);
+}
+.vr-search-section .form-control:focus,
+.vr-search-section .form-select:focus {
+    border-color: var(--vr-primary);
+    box-shadow: 0 0 0 3px rgba(26,86,219,.15);
+}
+
+/* ---- Buttons ---- */
+.btn-vr-primary {
+    background: var(--vr-primary);
+    color: var(--vr-white);
+    border: none;
+    font-weight: 600;
+    padding: .6rem 1.5rem;
+    border-radius: var(--vr-radius-sm);
+    transition: var(--vr-transition);
+}
+.btn-vr-primary:hover {
+    background: var(--vr-primary-dark);
+    color: var(--vr-white);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(26,86,219,.25);
+}
+
+.btn-vr-outline {
+    background: transparent;
+    color: var(--vr-primary);
+    border: 2px solid var(--vr-primary);
+    font-weight: 600;
+    padding: .55rem 1.4rem;
+    border-radius: var(--vr-radius-sm);
+    transition: var(--vr-transition);
+}
+.btn-vr-outline:hover {
+    background: var(--vr-primary);
+    color: var(--vr-white);
+}
+
+.btn-vr-accent {
+    background: var(--vr-accent);
+    color: var(--vr-dark);
+    border: none;
+    font-weight: 600;
+    padding: .6rem 1.5rem;
+    border-radius: var(--vr-radius-sm);
+    transition: var(--vr-transition);
+}
+.btn-vr-accent:hover {
+    background: var(--vr-accent-dark);
+    transform: translateY(-1px);
+}
+
+/* ---- Vehicle Cards ---- */
+.vr-vehicle-card {
+    background: var(--vr-white);
+    border: 1px solid var(--vr-gray-200);
+    border-radius: var(--vr-radius);
+    overflow: hidden;
+    transition: var(--vr-transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.vr-vehicle-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--vr-shadow-lg);
+    border-color: var(--vr-primary);
+}
+.vr-vehicle-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    background: var(--vr-gray-100);
+}
+.vr-vehicle-card .card-body {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.vr-vehicle-card .vehicle-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--vr-gray-900);
+    margin-bottom: .25rem;
+}
+.vr-vehicle-card .vehicle-brand {
+    font-size: .85rem;
+    color: var(--vr-gray-500);
+    margin-bottom: .75rem;
+}
+.vr-vehicle-card .vehicle-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+.vr-vehicle-card .vehicle-meta .badge-meta {
+    background: var(--vr-gray-100);
+    color: var(--vr-gray-700);
+    padding: .3rem .65rem;
+    border-radius: 20px;
+    font-size: .78rem;
+    font-weight: 500;
+}
+.vr-vehicle-card .vehicle-price {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--vr-primary);
+    margin-top: auto;
+    margin-bottom: .75rem;
+}
+.vr-vehicle-card .vehicle-price small {
+    font-size: .75rem;
+    font-weight: 500;
+    color: var(--vr-gray-500);
+}
+
+/* Vehicle image placeholder */
+.vr-img-placeholder {
+    height: 200px;
+    background: linear-gradient(135deg, var(--vr-gray-100), var(--vr-gray-200));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--vr-gray-500);
+    font-size: 3rem;
+}
+
+/* ---- Type badges ---- */
+.badge-car  { background: #dbeafe; color: #1e40af; }
+.badge-suv  { background: #d1fae5; color: #065f46; }
+.badge-bike { background: #fef3c7; color: #92400e; }
+
+/* ---- Auth pages (login, register) ---- */
+.vr-auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    padding: 2rem 1rem;
+}
+.vr-auth-card {
+    background: var(--vr-white);
+    border-radius: var(--vr-radius);
+    box-shadow: var(--vr-shadow-lg);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 460px;
+}
+.vr-auth-card h2 {
+    font-weight: 700;
+    color: var(--vr-gray-900);
+    margin-bottom: .25rem;
+}
+.vr-auth-card .auth-subtitle {
+    color: var(--vr-gray-500);
+    margin-bottom: 1.75rem;
+}
+.vr-auth-card .form-label {
+    font-weight: 600;
+    font-size: .875rem;
+}
+.vr-auth-card .form-control {
+    border-radius: var(--vr-radius-sm);
+    padding: .7rem 1rem;
+    border: 1.5px solid var(--vr-gray-200);
+    transition: var(--vr-transition);
+}
+.vr-auth-card .form-control:focus {
+    border-color: var(--vr-primary);
+    box-shadow: 0 0 0 3px rgba(26,86,219,.15);
+}
+
+/* ---- Booking Confirmation ---- */
+.vr-confirmation {
+    background: var(--vr-white);
+    border: 2px solid var(--vr-success);
+    border-radius: var(--vr-radius);
+    padding: 2rem;
+    text-align: center;
+}
+.vr-confirmation .check-icon {
+    font-size: 3rem;
+    color: var(--vr-success);
+    margin-bottom: 1rem;
+}
+.vr-confirmation h3 {
+    font-weight: 700;
+    color: var(--vr-gray-900);
+}
+
+/* ---- Booking table ---- */
+.vr-bookings-table {
+    background: var(--vr-white);
+    border-radius: var(--vr-radius);
+    box-shadow: var(--vr-shadow-sm);
+    overflow: hidden;
+}
+.vr-bookings-table .table {
+    margin-bottom: 0;
+}
+.vr-bookings-table .table th {
+    background: var(--vr-gray-50);
+    font-weight: 600;
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--vr-gray-500);
+    border-bottom: 2px solid var(--vr-gray-200);
+}
+
+/* Status badges */
+.badge-confirmed {
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: 600;
+    padding: .35rem .75rem;
+    border-radius: 20px;
+    font-size: .8rem;
+}
+.badge-cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+    font-weight: 600;
+    padding: .35rem .75rem;
+    border-radius: 20px;
+    font-size: .8rem;
+}
+
+/* ---- Featured section ---- */
+.vr-section-title {
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--vr-gray-900);
+    margin-bottom: .5rem;
+}
+.vr-section-subtitle {
+    color: var(--vr-gray-500);
+    margin-bottom: 2rem;
+}
+
+/* ---- Footer ---- */
+.vr-footer {
+    background: var(--vr-dark);
+    color: var(--vr-gray-200);
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+}
+.vr-footer h5 {
+    font-weight: 700;
+    color: var(--vr-white);
+    margin-bottom: 1rem;
+}
+.vr-footer a {
+    color: var(--vr-gray-200);
+    transition: var(--vr-transition);
+}
+.vr-footer a:hover {
+    color: var(--vr-accent);
+}
+.vr-footer .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    font-size: .85rem;
+    color: var(--vr-gray-500);
+}
+
+/* ---- Alerts ---- */
+.vr-alert {
+    border-radius: var(--vr-radius-sm);
+    border: none;
+    font-weight: 500;
+}
+
+/* ---- Responsive adjustments ---- */
+@media (max-width: 768px) {
+    .vr-hero {
+        padding: 3rem 0 2.5rem;
+    }
+    .vr-hero h1 {
+        font-size: 2rem;
+    }
+    .vr-search-section {
+        margin-top: -1.5rem;
+        padding: 1.5rem;
+    }
+    .vr-vehicle-card .card-img-top {
+        height: 160px;
+    }
+}
+
+/* ---- Empty state ---- */
+.vr-empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--vr-gray-500);
+}
+.vr-empty-state .empty-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    opacity: .5;
+}
+.vr-empty-state h5 {
+    font-weight: 600;
+    color: var(--vr-gray-700);
+}
+
+/* ---- Booking detail card ---- */
+.vr-booking-detail {
+    background: var(--vr-white);
+    border-radius: var(--vr-radius);
+    box-shadow: var(--vr-shadow-md);
+    padding: 2rem;
+}
+.vr-booking-detail .detail-label {
+    font-weight: 600;
+    font-size: .85rem;
+    color: var(--vr-gray-500);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.vr-booking-detail .detail-value {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--vr-gray-900);
+}

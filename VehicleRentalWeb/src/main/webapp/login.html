@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login | Vehicle Rental</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+
+    <div class="login-box">
+        <h1>Vehicle Rental</h1>
+        <p class="sub">Staff login</p>
+
+        <!-- AuthSer reads txtid and txtpwd with request.getParameter() -->
+        <form action="AuthSer" method="post">
+            <label for="txtid">Username</label>
+            <input type="text" id="txtid" name="txtid" required autofocus>
+
+            <label for="txtpwd">Password</label>
+            <input type="password" id="txtpwd" name="txtpwd" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="hint">Demo logins: <b>admin</b> / admin123 (ADMIN) &middot; <b>staff</b> / staff123 (STAFF)</div>
+    </div>
+
+</body>
+</html>
